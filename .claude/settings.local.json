@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "Bash(cd /c/Users/yk342/DEV/sandbox/ainotes && npx create-next-app@latest . --typescript --eslint --tailwind --app --src-dir --import-alias \"@/*\" --no-git --yes 2>&1)",
+      "Bash(cd:*)",
+      "Bash(cd /c/Users/yk342/DEV/sandbox/ainotes && npm run build 2>&1)",
+      "Bash(tail:*)",
+      "Bash(head:*)",
+      "Bash(cd /c/Users/yk342/dev/sandbox/ainotes && npx tsc --noEmit 2>&1)",
+      "Bash(cd /c/Users/yk342/dev/sandbox/ainotes && node -e \"require\\('./node_modules/sonner'\\)\" 2>&1)",
+      "Bash(cd /c/Users/yk342/dev/sandbox/ainotes && npm run build 2>&1)",
+      "Bash(find:*)"
+    ]
+  }
+}

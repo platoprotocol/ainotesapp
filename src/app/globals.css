@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+/* Ink wash palette */
+@theme {
+  --color-paper:        #FFFFE3;  /* warm cream — main backgrounds */
+  --color-ink:          #4A4A4A;  /* dark charcoal — text */
+  --color-wire:         #CBCBCB;  /* light gray — borders & dividers */
+  --color-accent:       #6D8196;  /* slate blue — interactive elements */
+  --color-accent-deep:  #5A6E80;  /* slate blue hover */
+}
+
+body {
+  background-color: #FFFFE3;
+  color: #4A4A4A;
+  -webkit-font-smoothing: antialiased;
+}
