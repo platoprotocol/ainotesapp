@@ -8,7 +8,7 @@ export function createClient() {
       auth: {
         // Bypass the Web Locks API to prevent the "LockManager timed out" error
         // that occurs when auth token refresh fetches hang (e.g. Supabase unreachable).
-        lock: (_name: string, _acquireTimeout: number, fn: () => Promise<unknown>) => fn(),
+        lock: <R>(_name: string, _acquireTimeout: number, fn: () => Promise<R>): Promise<R> => fn(),
       },
     }
   );
