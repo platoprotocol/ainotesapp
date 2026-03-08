@@ -17,7 +17,6 @@ export default function Icon() {
           justifyContent: 'center',
         }}
       >
-        {/* Notepad */}
         <div
           style={{
             width: 17,
@@ -27,13 +26,15 @@ export default function Icon() {
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'flex-start',
-            padding: '4px 3px',
-            gap: 3,
+            paddingTop: 4,
+            paddingBottom: 4,
+            paddingLeft: 3,
+            paddingRight: 3,
           }}
         >
           <div style={{ width: 11, height: 2, background: '#CBCBCB', borderRadius: 1 }} />
-          <div style={{ width: 11, height: 2, background: '#CBCBCB', borderRadius: 1 }} />
-          <div style={{ width: 7, height: 2, background: '#6D8196', borderRadius: 1 }} />
+          <div style={{ width: 11, height: 2, background: '#CBCBCB', borderRadius: 1, marginTop: 3 }} />
+          <div style={{ width: 7, height: 2, background: '#6D8196', borderRadius: 1, marginTop: 3 }} />
         </div>
       </div>
     ),
