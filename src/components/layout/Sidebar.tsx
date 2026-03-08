@@ -10,6 +10,7 @@ import { useAuth } from '@/hooks/useAuth';
 import { useUserPlan } from '@/hooks/useUserPlan';
 import { signOut } from '@/lib/auth';
 import { FREE_TIER_LIMIT } from '@/types';
+import { apiUrl } from '@/lib/apiUrl';
 
 export function Sidebar() {
   const [search, setSearch] = useState('');
@@ -56,7 +57,7 @@ export function Sidebar() {
   async function handleManageBilling() {
     setBillingLoading(true);
     try {
-      const res = await fetch('/api/stripe/portal', { method: 'POST' });
+      const res = await fetch(apiUrl('/api/stripe/portal'), { method: 'POST' });
       const data = await res.json();
       if (data.url) window.location.href = data.url;
     } finally {

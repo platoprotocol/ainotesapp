@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useUserPlan } from '@/hooks/useUserPlan';
 import { FREE_TIER_LIMIT } from '@/types';
+import { apiUrl } from '@/lib/apiUrl';
 
 interface UsageBadgeProps {
   onUpgradeClick: () => void;
@@ -18,7 +19,7 @@ export function UsageBadge({ onUpgradeClick }: UsageBadgeProps) {
     async function handleManageBilling() {
       setBillingLoading(true);
       try {
-        const res = await fetch('/api/stripe/portal', { method: 'POST' });
+        const res = await fetch(apiUrl('/api/stripe/portal'), { method: 'POST' });
         const data = await res.json();
         if (data.url) window.location.href = data.url;
       } finally {

@@ -2,6 +2,7 @@
 
 import { useRef, useState, useCallback } from 'react';
 import { toast } from 'sonner';
+import { apiUrl } from '@/lib/apiUrl';
 
 interface UseRecordingOptions {
   onTranscript: (text: string) => void;
@@ -43,7 +44,7 @@ export function useRecording({ onTranscript, onLimitReached }: UseRecordingOptio
         const formData = new FormData();
         formData.append('audio', file);
         try {
-          const res = await fetch('/api/ai/transcribe', { method: 'POST', body: formData });
+          const res = await fetch(apiUrl('/api/ai/transcribe'), { method: 'POST', body: formData });
           if (res.status === 429) {
             onLimitReached();
             setRecordingState('idle');

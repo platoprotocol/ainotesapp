@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { Button } from '@/components/ui/Button';
+import { apiUrl } from '@/lib/apiUrl';
 
 interface UpgradeModalProps {
   open: boolean;
@@ -22,7 +23,7 @@ export function UpgradeModal({ open, onClose, trigger = 'manual' }: UpgradeModal
   async function handleUpgrade() {
     setLoading(true);
     try {
-      const res = await fetch('/api/stripe/checkout', { method: 'POST' });
+      const res = await fetch(apiUrl('/api/stripe/checkout'), { method: 'POST' });
       const data = await res.json();
       if (data.url) window.location.href = data.url;
     } finally {

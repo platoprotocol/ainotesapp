@@ -2,6 +2,7 @@
 
 import { useState, useCallback } from 'react';
 import type { AIAction, AIResponse, ChatMessage } from '@/types';
+import { apiUrl } from '@/lib/apiUrl';
 
 interface UseAIState {
   result: string | null;
@@ -36,7 +37,7 @@ export function useAI(): UseAIReturn {
     setState({ result: null, tags: null, loading: true, error: null });
 
     try {
-      const res = await fetch('/api/ai', {
+      const res = await fetch(apiUrl('/api/ai'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ action, title, body, messages }),
