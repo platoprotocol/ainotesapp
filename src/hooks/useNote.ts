@@ -3,7 +3,24 @@
 import { useEffect, useState, useRef, useCallback } from 'react';
 import { toast } from 'sonner';
 import { getNote, updateNote, deleteNote } from '@/lib/notes';
+import { apiUrl } from '@/lib/apiUrl';
 import type { Note } from '@/types';
+
+function awardStreak() {
+  const key = 'gam_streak_date';
+  const today = new Date().toISOString().split('T')[0];
+  try {
+    if (localStorage.getItem(key) === today) return;
+    localStorage.setItem(key, today);
+  } catch {
+    // localStorage unavailable — proceed
+  }
+  fetch(apiUrl('/api/gamification/award'), {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ action: 'note_saved' }),
+  }).catch(() => {});
+}
 
 export function useNote(id: string) {
   const [note, setNote] = useState<Note | null>(null);
@@ -34,6 +51,7 @@ export function useNote(id: string) {
           await updateNote(id, updates);
           setSaveStatus('saved');
           setTimeout(() => setSaveStatus('idle'), 2000);
+          awardStreak();
         } catch {
           setSaveStatus('idle');
           toast.error('Failed to save note');

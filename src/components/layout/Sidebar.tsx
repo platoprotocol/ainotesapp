@@ -8,6 +8,7 @@ import { NewNoteButton } from '@/components/notes/NewNoteButton';
 import { UpgradeModal } from '@/components/billing/UpgradeModal';
 import { useAuth } from '@/hooks/useAuth';
 import { useUserPlan } from '@/hooks/useUserPlan';
+import { useGamification } from '@/hooks/useGamification';
 import { signOut } from '@/lib/auth';
 import { FREE_TIER_LIMIT } from '@/types';
 import { apiUrl } from '@/lib/apiUrl';
@@ -21,6 +22,7 @@ export function Sidebar() {
 
   const { user } = useAuth();
   const { plan, usage, loading: planLoading } = useUserPlan();
+  const { data: gamData } = useGamification();
   const router = useRouter();
 
   // Treat missing plan row as free tier
@@ -71,12 +73,22 @@ export function Sidebar() {
 
         {/* Logo */}
         <div className="px-4 py-4 border-b border-wire">
-          <Link href="/notes" className="flex items-center gap-2.5 hover:opacity-70 transition-opacity">
-            <svg className="h-4 w-4 text-accent shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-            </svg>
-            <span className="text-sm font-semibold text-ink tracking-tight">Logan&apos;s List</span>
-          </Link>
+          <div className="flex items-center justify-between">
+            <Link href="/notes" className="flex items-center gap-2.5 hover:opacity-70 transition-opacity">
+              <svg className="h-4 w-4 text-accent shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+              </svg>
+              <span className="text-sm font-semibold text-ink tracking-tight">Logan&apos;s List</span>
+            </Link>
+            <div className="flex items-center gap-2">
+              {gamData && (
+                <Link href="/notes/stats" className="flex items-center gap-1 text-xs text-ink/40 hover:text-ink transition-colors" title="Stats & achievements">
+                  <span>{gamData.streak.current > 0 ? '🔥' : '💤'}</span>
+                  <span className="font-medium">{gamData.streak.current}</span>
+                </Link>
+              )}
+            </div>
+          </div>
         </div>
 
         {/* New note */}

@@ -43,3 +43,24 @@ export interface AIUsage {
 }
 
 export const FREE_TIER_LIMIT = 20;
+
+export interface Achievement {
+  id: string;
+  name: string;
+  description: string;
+  icon: string;
+  unlockedAt?: string;
+}
+
+export interface GamificationStats {
+  xp: number;
+  level: number;
+  levelTitle: string;
+  xpProgress: number;
+  xpForNext: number;
+  xpForCurrent: number;
+  streak: { current: number; longest: number; lastActiveDate: string | null };
+  stats: { totalNotes: number; totalWords: number; totalRecordings: number; totalAIActions: number };
+  dailyActivity: Record<string, number>;
+  achievements: Achievement[];
+}

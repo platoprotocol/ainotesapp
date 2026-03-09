@@ -3,6 +3,7 @@ import OpenAI from 'openai';
 import { createClient } from '@/lib/supabase/server';
 import { checkAndIncrementUsage } from '@/lib/usage';
 import { checkRateLimit } from '@/lib/rateLimit';
+import { processAction } from '@/lib/gamification';
 import type { AIAction, ChatMessage, AIResponse } from '@/types';
 
 const SYSTEM_PROMPTS: Record<AIAction, string> = {
@@ -99,6 +100,7 @@ export async function POST(req: NextRequest): Promise<NextResponse<AIResponse>> 
       });
 
       const result = response.choices[0]?.message?.content ?? '';
+      if (!skipUsage) processAction(user.id, 'ai_action').catch(() => {});
       return NextResponse.json({ result });
     }
 
@@ -117,6 +119,8 @@ export async function POST(req: NextRequest): Promise<NextResponse<AIResponse>> 
     });
 
     const raw = response.choices[0]?.message?.content ?? '';
+
+    if (!skipUsage) processAction(user.id, 'ai_action').catch(() => {});
 
     if (action === 'smart-tags') {
       let tags: string[] = [];

@@ -3,6 +3,7 @@ import OpenAI from 'openai';
 import { createClient } from '@/lib/supabase/server';
 import { checkAndIncrementUsage } from '@/lib/usage';
 import { checkRateLimit } from '@/lib/rateLimit';
+import { processAction } from '@/lib/gamification';
 
 export async function POST(req: NextRequest) {
   // Auth check
@@ -45,6 +46,7 @@ export async function POST(req: NextRequest) {
       response_format: 'text',
     });
 
+    processAction(user.id, 'transcribe').catch(() => {});
     return NextResponse.json({ transcript });
   } catch (err) {
     const message = err instanceof Error ? err.message : 'Transcription failed';

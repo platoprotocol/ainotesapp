@@ -5,10 +5,12 @@ import { useRouter } from 'next/navigation';
 import { toast } from 'sonner';
 import { createNote } from '@/lib/notes';
 import { useNotesContext } from '@/contexts/NotesContext';
+import { useGamification } from '@/hooks/useGamification';
 
 export function NewNoteButton({ className }: { className?: string }) {
   const router = useRouter();
   const { addNote } = useNotesContext();
+  const { awardAction } = useGamification();
   const [loading, setLoading] = useState(false);
 
   async function handleCreate() {
@@ -17,6 +19,7 @@ export function NewNoteButton({ className }: { className?: string }) {
       const note = await createNote();
       addNote(note); // instant sidebar/dashboard update
       router.push(`/notes/${note.id}`);
+      awardAction('create_note');
     } catch {
       toast.error('Failed to create note');
     } finally {

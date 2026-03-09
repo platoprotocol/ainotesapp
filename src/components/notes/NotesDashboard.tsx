@@ -3,8 +3,10 @@
 import Link from 'next/link';
 import { useNotesContext } from '@/contexts/NotesContext';
 import { useAuth } from '@/hooks/useAuth';
+import { useGamification } from '@/hooks/useGamification';
 import { Spinner } from '@/components/ui/Spinner';
 import { NewNoteButton } from '@/components/notes/NewNoteButton';
+import { LevelBadge } from '@/components/gamification/LevelBadge';
 
 // Accent bar tints derived from #6D8196
 const TINTS = [
@@ -44,6 +46,7 @@ function wordCount(body: string): string {
 export function NotesDashboard() {
   const { notes, loading, error, hasMore, loadMore } = useNotesContext();
   const { user } = useAuth();
+  const { data: gamData } = useGamification();
 
   const name =
     (user?.user_metadata?.full_name as string | undefined) ??
@@ -80,7 +83,10 @@ export function NotesDashboard() {
               : `${notes.length}${hasMore ? '+' : ''} note${notes.length !== 1 ? 's' : ''}`}
           </p>
         </div>
-        <NewNoteButton className="shrink-0 bg-accent text-white hover:bg-accent-deep border-0" />
+        <div className="flex items-center gap-3">
+          {gamData && <LevelBadge data={gamData} compact />}
+          <NewNoteButton className="shrink-0 bg-accent text-white hover:bg-accent-deep border-0" />
+        </div>
       </div>
 
       {/* Body */}
