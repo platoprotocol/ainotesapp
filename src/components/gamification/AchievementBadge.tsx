@@ -20,7 +20,7 @@ export function AchievementBadge({ achievement, unlocked }: Props) {
       <span className="text-3xl">{achievement.icon}</span>
       <div>
         <p className="text-xs font-semibold text-ink leading-snug">{achievement.name}</p>
-        <p className="text-[11px] text-ink/40 leading-snug mt-0.5">{achievement.description}</p>
+        <p className="text-[11px] text-ink/60 leading-snug mt-0.5">{achievement.description}</p>
       </div>
       {unlocked && achievement.unlockedAt && (
         <p className="text-[10px] text-accent/60">

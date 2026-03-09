@@ -18,13 +18,13 @@ export function LevelBadge({ data, compact = false }: Props) {
         <span className="inline-flex items-center rounded-full bg-accent/10 px-2 py-0.5 text-[10px] font-semibold text-accent">
           Lv {level}
         </span>
-        <div className="flex-1 h-1 rounded-full bg-wire overflow-hidden min-w-12">
+        <div className="flex-1 h-1.5 rounded-full bg-wire overflow-hidden min-w-12">
           <div
             className="h-full rounded-full bg-accent transition-all"
             style={{ width: `${Math.min(xpProgress * 100, 100)}%` }}
           />
         </div>
-        <span className="text-[10px] text-ink/30 shrink-0">{xp} XP</span>
+        <span className="text-[10px] text-ink/50 shrink-0">{xp} XP</span>
       </div>
     );
   }

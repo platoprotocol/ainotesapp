@@ -12,7 +12,7 @@ function StatCard({ label, value, icon }: { label: string; value: string | numbe
     <div className="rounded-xl border border-wire bg-white p-4">
       <p className="text-2xl mb-1">{icon}</p>
       <p className="text-2xl font-bold text-ink">{value.toLocaleString()}</p>
-      <p className="text-xs text-ink/40 mt-0.5">{label}</p>
+      <p className="text-xs text-ink/60 mt-0.5">{label}</p>
     </div>
   );
 }
@@ -43,7 +43,7 @@ function ActivityChart({ dailyActivity }: { dailyActivity: Record<string, number
             className="flex-1 flex flex-col items-center gap-0.5 group relative"
           >
             <div
-              className="w-full rounded-t-sm bg-accent/40 group-hover:bg-accent transition-colors"
+              className="w-full rounded-t-sm bg-accent/70 group-hover:bg-accent transition-colors"
               style={{ height: `${Math.max((day.count / maxCount) * 100, day.count > 0 ? 8 : 2)}%` }}
             />
             {/* Tooltip */}

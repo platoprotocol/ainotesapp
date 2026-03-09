@@ -17,6 +17,7 @@ import { AIChatPanel } from '@/components/ai/AIChatPanel';
 import { RecordingBar } from '@/components/ai/RecordingBar';
 import { UpgradeModal } from '@/components/billing/UpgradeModal';
 import { DeleteNoteModal } from '@/components/notes/DeleteNoteModal';
+import { apiUrl } from '@/lib/apiUrl';
 import type { AIAction, Note } from '@/types';
 
 export function NoteEditor({ noteId }: { noteId: string }) {
@@ -107,7 +108,7 @@ export function NoteEditor({ noteId }: { noteId: string }) {
     if (!note || autoTitledRef.current || note.title !== '' || (note.body ?? '').length <= 150) return;
     autoTitledRef.current = true;
     setIsGeneratingTitle(true);
-    fetch('/api/ai', {
+    fetch(apiUrl('/api/ai'), {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ action: 'generate-title', skipUsage: true, title: '', body: note.body }),
@@ -134,7 +135,7 @@ export function NoteEditor({ noteId }: { noteId: string }) {
       summaryAbortRef.current = ctrl;
       setSummaryLoading(true);
       try {
-        const res = await fetch('/api/ai', {
+        const res = await fetch(apiUrl('/api/ai'), {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ action: 'summarize', skipUsage: true, title: note.title, body: note.body }),
