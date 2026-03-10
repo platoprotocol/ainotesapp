@@ -88,7 +88,7 @@ export function AIToolbar({ loading, chatOpen, onAction, onChatToggle, onTranscr
         {open && (
           <>
             <div className="fixed inset-0 z-10" onClick={() => setOpen(false)} />
-            <div className="absolute right-0 top-9 z-20 w-52 rounded-xl border border-wire bg-white py-1 shadow-lg">
+            <div className="absolute right-0 top-9 z-20 w-52 rounded-xl border border-wire bg-paper py-1 shadow-lg">
               {ACTIONS.map(({ action, label, description }) => (
                 <button
                   key={action}

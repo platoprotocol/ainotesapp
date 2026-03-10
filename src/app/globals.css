@@ -1,16 +1,16 @@
 @import "tailwindcss";
 
-/* Ink wash palette */
+/* Cyber / Futuristic palette */
 @theme {
-  --color-paper:        #FFFFE3;  /* warm cream — main backgrounds */
-  --color-ink:          #4A4A4A;  /* dark charcoal — text */
-  --color-wire:         #CBCBCB;  /* light gray — borders & dividers */
-  --color-accent:       #6D8196;  /* slate blue — interactive elements */
-  --color-accent-deep:  #5A6E80;  /* slate blue hover */
+  --color-paper:        #0D0F1A;  /* deep navy — main backgrounds */
+  --color-ink:          #E2E8F0;  /* off-white — primary text */
+  --color-wire:         #1E2A3A;  /* dark blue-gray — borders & dividers */
+  --color-accent:       #00D9FF;  /* electric cyan — interactive elements */
+  --color-accent-deep:  #00A8CC;  /* cyan hover */
 }
 
 body {
-  background-color: #FFFFE3;
-  color: #4A4A4A;
+  background-color: #0D0F1A;
+  color: #E2E8F0;
   -webkit-font-smoothing: antialiased;
 }

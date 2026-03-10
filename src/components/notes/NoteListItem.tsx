@@ -76,9 +76,9 @@ export function NoteListItem({ note }: { note: Note }) {
         {menuOpen && (
           <>
             <div className="fixed inset-0 z-10" onClick={() => setMenuOpen(false)} />
-            <div className="absolute right-2 top-8 z-20 rounded-lg border border-wire bg-white py-1 shadow-md">
+            <div className="absolute right-2 top-8 z-20 rounded-lg border border-wire bg-paper py-1 shadow-md">
               <button
-                className="w-full px-4 py-1.5 text-left text-sm text-red-500 hover:bg-red-50 transition-colors"
+                className="w-full px-4 py-1.5 text-left text-sm text-red-400 hover:bg-red-900/20 transition-colors"
                 onClick={() => { setMenuOpen(false); setDeleteOpen(true); }}
               >
                 Delete note

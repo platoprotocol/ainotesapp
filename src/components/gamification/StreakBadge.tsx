@@ -16,7 +16,7 @@ export function StreakBadge({ current, compact = false }: Props) {
   }
 
   return (
-    <div className="rounded-xl border border-wire bg-white p-4 flex items-center gap-4">
+    <div className="rounded-xl border border-wire bg-wire/10 p-4 flex items-center gap-4">
       <div className="text-4xl">{current > 0 ? '🔥' : '💤'}</div>
       <div>
         <p className="text-2xl font-bold text-ink">{current}</p>

@@ -8,14 +8,14 @@ import { Spinner } from '@/components/ui/Spinner';
 import { NewNoteButton } from '@/components/notes/NewNoteButton';
 import { LevelBadge } from '@/components/gamification/LevelBadge';
 
-// Accent bar tints derived from #6D8196
+// Futuristic neon accent bar tints
 const TINTS = [
-  'bg-[#6D8196]',
-  'bg-[#8BA0B5]',
-  'bg-[#5A6E80]',
-  'bg-[#7A9BAE]',
-  'bg-[#4A5E6D]',
-  'bg-[#9DB3C4]',
+  'bg-[#00D9FF]',
+  'bg-[#7B2FFF]',
+  'bg-[#FF2FD9]',
+  'bg-[#00FF88]',
+  'bg-[#FF6B00]',
+  'bg-[#FFD700]',
 ];
 
 function relativeTime(dateStr: string): string {
@@ -117,7 +117,7 @@ export function NotesDashboard() {
                   <Link
                     key={note.id}
                     href={`/notes/${note.id}`}
-                    className="group flex flex-col rounded-xl border border-wire bg-white shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-150 overflow-hidden"
+                    className="group flex flex-col rounded-xl border border-wire bg-wire/10 shadow-sm hover:shadow-lg hover:shadow-accent/10 hover:-translate-y-0.5 transition-all duration-150 overflow-hidden"
                   >
                     {/* Accent stripe */}
                     <div className={`h-1 w-full ${accent}`} />

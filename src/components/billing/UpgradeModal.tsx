@@ -34,7 +34,7 @@ export function UpgradeModal({ open, onClose, trigger = 'manual' }: UpgradeModal
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
       <div className="absolute inset-0 bg-ink/40" onClick={onClose} />
-      <div className="relative z-10 w-full max-w-lg rounded-2xl bg-white border border-wire shadow-2xl overflow-hidden">
+      <div className="relative z-10 w-full max-w-lg rounded-2xl bg-paper border border-wire shadow-2xl overflow-hidden">
 
         {/* Header */}
         <div className="px-8 pt-8 pb-6 border-b border-wire text-center">

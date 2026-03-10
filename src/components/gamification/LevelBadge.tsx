@@ -30,7 +30,7 @@ export function LevelBadge({ data, compact = false }: Props) {
   }
 
   return (
-    <div className="rounded-xl border border-wire bg-white p-4 flex flex-col gap-3">
+    <div className="rounded-xl border border-wire bg-wire/10 p-4 flex flex-col gap-3">
       <div className="flex items-center justify-between">
         <div>
           <p className="text-xs text-ink/40 uppercase tracking-widest font-medium">Level {level}</p>

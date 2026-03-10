@@ -35,7 +35,7 @@ export function Modal({
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-ink/40 p-4" onClick={onCancel}>
       <div
-        className="w-full max-w-sm rounded-xl bg-white p-6 shadow-xl border border-wire"
+        className="w-full max-w-sm rounded-xl bg-paper p-6 shadow-xl border border-wire"
         onClick={(e) => e.stopPropagation()}
       >
         <h2 className="text-base font-semibold text-ink">{title}</h2>

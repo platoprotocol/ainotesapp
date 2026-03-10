@@ -206,7 +206,7 @@ export function NoteEditor({ noteId }: { noteId: string }) {
         <div className="flex flex-1 flex-col overflow-hidden">
 
           {/* Header */}
-          <div className="flex items-center justify-between border-b border-wire bg-white px-4 py-2.5">
+          <div className="flex items-center justify-between border-b border-wire bg-paper px-4 py-2.5">
             <Link
               href="/notes"
               className="md:hidden flex items-center gap-1 text-sm text-accent hover:opacity-70 transition-opacity"
@@ -289,7 +289,7 @@ export function NoteEditor({ noteId }: { noteId: string }) {
 
             {/* Auto-summary */}
             {(summaryLoading || autoSummary) && (
-              <div className="mb-6 rounded-xl border border-wire bg-white">
+              <div className="mb-6 rounded-xl border border-wire bg-wire/10">
                 <button
                   onClick={() => setSummaryOpen((o) => !o)}
                   className="flex w-full items-center justify-between px-4 py-2.5"

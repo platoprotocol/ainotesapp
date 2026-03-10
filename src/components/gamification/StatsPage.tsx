@@ -9,7 +9,7 @@ import { Spinner } from '@/components/ui/Spinner';
 
 function StatCard({ label, value, icon }: { label: string; value: string | number; icon: string }) {
   return (
-    <div className="rounded-xl border border-wire bg-white p-4">
+    <div className="rounded-xl border border-wire bg-wire/10 p-4">
       <p className="text-2xl mb-1">{icon}</p>
       <p className="text-2xl font-bold text-ink">{value.toLocaleString()}</p>
       <p className="text-xs text-ink/60 mt-0.5">{label}</p>
@@ -34,7 +34,7 @@ function ActivityChart({ dailyActivity }: { dailyActivity: Record<string, number
   const maxCount = Math.max(...days.map((d) => d.count), 1);
 
   return (
-    <div className="rounded-xl border border-wire bg-white p-4">
+    <div className="rounded-xl border border-wire bg-wire/10 p-4">
       <p className="text-sm font-semibold text-ink mb-4">Activity — last 30 days</p>
       <div className="flex items-end gap-1 h-20">
         {days.map((day) => (
@@ -102,7 +102,7 @@ export function StatsPage() {
         {/* Level + Streak row */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <LevelBadge data={data} />
-          <div className="rounded-xl border border-wire bg-white p-4 flex flex-col gap-3">
+          <div className="rounded-xl border border-wire bg-wire/10 p-4 flex flex-col gap-3">
             <div className="flex items-center gap-4">
               <StreakBadge current={data.streak.current} />
               <div className="border-l border-wire pl-4">
