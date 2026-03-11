@@ -237,7 +237,10 @@ export default async function Home() {
             <SparkIcon />
             <span className="text-sm font-bold text-indigo-600">Logan&apos;s List</span>
           </div>
-          <p className="text-xs text-slate-400">© {new Date().getFullYear()} Logan&apos;s List. All rights reserved.</p>
+          <div className="flex items-center gap-4 text-xs text-slate-400">
+            <Link href="/privacy" className="hover:text-slate-600 transition-colors">Privacy Policy</Link>
+            <span>© {new Date().getFullYear()} Logan&apos;s List. All rights reserved.</span>
+          </div>
         </div>
       </footer>
     </div>
