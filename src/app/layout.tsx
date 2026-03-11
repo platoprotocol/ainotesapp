@@ -11,6 +11,9 @@ const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
   title: "Logan's List",
   description: 'Cloud-based notes app',
+  other: {
+    'google-adsense-account': 'ca-pub-4125872061932966',
+  },
 };
 
 export default function RootLayout({
