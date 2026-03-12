@@ -7,6 +7,7 @@ import { useGamification } from '@/hooks/useGamification';
 import { Spinner } from '@/components/ui/Spinner';
 import { NewNoteButton } from '@/components/notes/NewNoteButton';
 import { LevelBadge } from '@/components/gamification/LevelBadge';
+import { AdUnit } from '@/components/ads/AdUnit';
 
 // Futuristic neon accent bar tints
 const TINTS = [
@@ -154,6 +155,10 @@ export function NotesDashboard() {
                 </button>
               </div>
             )}
+
+            <div className="mt-8">
+              <AdUnit slot="YOUR_AD_SLOT_ID" format="auto" />
+            </div>
           </>
         )}
       </div>
