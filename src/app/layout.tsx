@@ -10,9 +10,6 @@ const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
   title: "Logan's List",
   description: 'Cloud-based notes app',
-  other: {
-    'google-adsense-account': 'ca-pub-4125872061932966',
-  },
 };
 
 export default function RootLayout({
@@ -23,6 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <meta name="google-adsense-account" content="ca-pub-4125872061932966" />
         {/* eslint-disable-next-line @next/next/no-sync-scripts */}
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4125872061932966" crossOrigin="anonymous" />
       </head>
