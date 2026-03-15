@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/Button';
 import { GoogleSignInButton } from './GoogleSignInButton';
 import { signIn } from '@/lib/auth';
 
-export function LoginForm() {
+export function LoginForm({ next = '/notes' }: { next?: string }) {
   const router = useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -21,7 +21,7 @@ export function LoginForm() {
     setLoading(true);
     const { error } = await signIn(email, password);
     if (error) { setError(error.message); setLoading(false); return; }
-    router.push('/notes');
+    router.push(next);
     router.refresh();
   }
 

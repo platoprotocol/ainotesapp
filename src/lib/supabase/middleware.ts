@@ -36,6 +36,12 @@ export async function updateSession(request: NextRequest) {
   const isPublicPath = publicPaths.some((p) => pathname === p || (p !== '/' && pathname.startsWith(p)));
 
   if (!user && !isPublicPath) {
+    const authOrigin = process.env.NEXT_PUBLIC_AUTH_ORIGIN;
+    if (authOrigin) {
+      // In production, redirect to the central kao.gg login
+      const next = encodeURIComponent(pathname);
+      return NextResponse.redirect(`${authOrigin}/login?next=${next}`);
+    }
     const url = request.nextUrl.clone();
     url.pathname = '/login';
     return NextResponse.redirect(url);
